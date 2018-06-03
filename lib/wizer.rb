@@ -5,4 +5,9 @@ module Wizer
       "bueno que!"
     end
   end
+  class Location
+    def initialize(location)
+      @name = location
+    end
+  end
 end
