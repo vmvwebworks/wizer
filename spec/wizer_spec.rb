@@ -30,7 +30,7 @@ RSpec.describe Wizer do
 
   # CLI Tests
   it "salutes the user" do
-    expect(CLI.hello).to eql("Hello world")
+    expect(Wizer::CLI.hello).to eql("Hello world")
   end
 
   # it "does something useful" do

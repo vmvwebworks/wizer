@@ -1,7 +1,7 @@
 require "wizer/version"
+require "wizer/cli"
 require 'rest-client'
 require 'json'
-require 'thor'
 module Wizer
   class Tiempo
     def initialize(location_id, affiliate_id)
@@ -52,10 +52,5 @@ module Wizer
   #   code here...
   # end
 
-  class CLI < Thor
-    desc "hello world", "my first cli yay"
-    def self.hello
-      "Hello world"
-    end
-  end
+
 end
