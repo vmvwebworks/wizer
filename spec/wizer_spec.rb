@@ -1,4 +1,5 @@
 RSpec.describe Wizer do
+  require 'json_spec'
   it "has a version number" do
     expect(Wizer::VERSION).not_to be nil
   end
@@ -13,8 +14,23 @@ RSpec.describe Wizer do
   end
   it "Shows the temperature for today" do
     @inst = Wizer::Tiempo.new("1381","zdo2c683olan")
+    puts "response from the request: " + @inst.temperature_today
+    be_json_eql(@inst.temperature_today)
+  end
+  it "Shows the minimum temperature from the week" do
+    @inst = Wizer::Tiempo.new("1381","zdo2c683olan")
     puts "response from the request: " + @inst.min_temperature_this_week
-    expect(@inst.min_temperature_this_week.code).to eql(200)
+    be_json_eql(@inst.min_temperature_this_week)
+  end
+  it "Shows the maximum temperature from the week" do
+    @inst = Wizer::Tiempo.new("1381","zdo2c683olan")
+    puts "response from the request: " + @inst.max_temperature_this_week
+    be_json_eql(@inst.max_temperature_this_week)
+  end
+
+  # CLI Tests
+  it "salutes the user" do
+    expect(CLI.hello).to eql("Hello world")
   end
 
   # it "does something useful" do
